@@ -1,0 +1,61 @@
+<project name="Primer proyecto de ant" default="jar" basedir=".">
+    <description> Ejemplo sencillo de utilización de ant para compilación </description>
+    <!--   directorios globales para la compilación src-> código, build -> .class, dist->jar   -->
+    <property name="src" location="src" />
+    <property name="build" location="build" />
+    <property name="dist" location="dist" />
+    <property name="javadoc" location="javadoc" />
+    <property name="mainClass" value="org.ipc1.tlotr.Main"/>
+    <property name="jarName" value="TLOTR"/>
+
+    <!--   nombre para el jar  
+    <path id="build.classpath">
+        <fileset dir="dist/lib">
+            <include name="mariadb-java-client-2.7.3.jar" />
+        </fileset>
+    </path> -->
+    <target name="init" depends="clean">
+        <!--   generamos un timestamp depends="clean"  -->
+        <tstamp />
+        <!--   Create the build directory structure used by compile   -->
+        <mkdir dir="${build}" />
+    </target>
+    <target name="compile" depends="init" description="compile the source">
+        <!--   Compilando el código en  ${src} a ${build}   -->
+        <javac srcdir="${src}" includeantruntime="false" destdir="${build}">
+            <!--   <classpath refid="build.path" />   -->
+        </javac>
+    </target>
+    <target name="runClass" depends="compile" description="compile the source">
+        <!--   Compilando el código en  ${src} a ${build}   -->
+        <java classname="${mainClass}" classpath="${build}" />
+    </target>
+    <target name="jar" depends="compile" description="Generando el directori dist para almacenar el Jar ">
+        <!--   Creamos el directorio dist/lib   -->
+        <mkdir dir="${dist}/lib" />
+        <!--   Agregamos todo lo que hay en ${build} en ${nameDist}-${DSTAMP}.jar   -->
+        <jar jarfile="${dist}/lib/${jarName}-${DSTAMP}.jar" basedir="${build}">
+            <manifest>
+                <attribute name="Main-Class" value="${mainClass}" />
+            </manifest>
+        </jar>
+    </target>
+    <!--   Generando la javadoc  opcional: depends="jar"    -->
+    <target name="javadoc">
+        <echo>Making JavaDoc from source</echo>
+        <mkdir dir="${javadoc}" />
+        <javadoc destdir="${javadoc}">
+            <fileset dir="${src}" />
+        </javadoc>
+    </target>
+    <!--   Ejecutando el jar    -->
+    <target name="run" depends="jar">
+        <java jar="${dist}/lib/${jarName}-${DSTAMP}.jar" fork="true" />
+    </target>
+    <!--   Eliminamos los directorios ${build} y ${dist}    -->
+    <target name="clean" description="Eliminando todos los directorios">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+        <delete dir="${javadoc}" />
+    </target>
+</project>
