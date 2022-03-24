@@ -1,18 +1,18 @@
 package org.ipc1.tlotr.character.heroes;
 
 import org.ipc1.tlotr.character.Characters;
-import org.ipc1.tlotr.character.beasts.Orco;
+import org.ipc1.tlotr.character.beasts.Orcs;
 import org.ipc1.tlotr.util.Util;
 
-public class Elfo extends Heroes {
-    public Elfo(int life, int shield, String name) {
+public class Elves extends Heroes {
+    public Elves(int life, int shield, String name) {
         super(life, shield, name);
     }
 
     @Override
     public int getModAttack(Characters defense) {
-        if (defense instanceof Orco) {
-            System.out.println("      Los elfos odian a los orcos por lo tanto aumenta su poder de ataque");
+        if (defense instanceof Orcs) {
+            System.out.println("      Elves hate orcs so their attack power increases. +10");
             return 10;
         }
         return 0;
@@ -21,6 +21,6 @@ public class Elfo extends Heroes {
     private static String[] nombres = { "Legolas", "Bladimir" };
 
     public static String getRandomName() {
-        return Elfo.nombres[Util.generarNumeroRandom(0, (nombres.length - 1))];
+        return Elves.nombres[Util.generateRandomNumber(0, (nombres.length - 1))];
     }
 }

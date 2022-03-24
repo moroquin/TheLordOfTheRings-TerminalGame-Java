@@ -17,18 +17,18 @@ public abstract class Beasts extends Characters {
         return 1;
     }
 
-    public static Characters newHeroeInstanceRandom(int life, int shield, int number){
+    public static Characters newInstanceRandom(int life, int shield, int number){
         Characters res = null;
-        int tipoHeroe = Util.generarNumeroRandom(1, 2);
+        int tipoHeroe = Util.generateRandomNumber(1, 2);
         // System.out.println(" vamos a una instancia de "+tipoHeroe);
 
         switch (tipoHeroe) {
             case 1:
                 //Orco
-                return (Characters) (new Orco(life, shield, "Orco "+number ));
+                return (Characters) (new Orcs(life, shield, "Orc "+number ));
             case 2:
                 //hobbit
-                return (Characters) (new Trasgo(life, shield, "Trasgo "+number ));
+                return (Characters) (new Goblins(life, shield, "Goblin "+number ));
         }
         return res;
     }

@@ -1,29 +1,57 @@
-# TheLordOfTheRings-TerminalGame-Java
+# The Lord Of The Rings - Terminal Game - Java
 
+The object of this repository is assisting introduction to programming students to understand objects, inheritance, polymorphism and compiling java projects with ant and command line. 
 
-# compilación
+## About the requirements
 
-si estoy ubicado en la carpeta raiz del **proyecto** debo moverme a la carpeta src, sería la raíz de mi código
+You can find the details of the project in the . . . 
+
+## Links of interest
+
+* Compiling the project from the command line
+* Compiling the project with ant
+
+## Try the project
+
+To try the project you need to have installed
+
+* java - at least version 8. 
+* ant 
+
+To try the project you can use the next commands 
+
+### Compile the project
 
 ```bash
-cd src
+ant compile
 ```
 
-Una vez en la carpeta raiz de mí código, es decir dentro de src ya puedo compilar
+### Execute the project using the .class files
 
 ```bash
-javac -d ../build org/ipc1/tlotr/util/*.java org/ipc1/tlotr/character/*.java org/ipc1/tlotr/character/beasts/*.java org/ipc1/tlotr/character/heroes/*.java org/ipc1/tlotr/*.java
+ant runClass
 ```
 
-# Ejecutar
-Si estoy en la carpeta raíz de mi código, es decir dentro de la carpeta src, debo regresar a la carpeta raiz de mi proyecto
+### Generate Jar 
 
 ```bash
-cd ..
+ant jar
 ```
 
-una vez allí puedo ejecutar 
+### Run the jar file
 
 ```bash
-java -cp ./build/ org.ipc1.tlotr.Main
+ant run
+```
+
+### Generate javadoc
+
+```bash
+ant javadoc
+```
+
+### Clean the workspace
+
+```bash
+ant clean
 ```

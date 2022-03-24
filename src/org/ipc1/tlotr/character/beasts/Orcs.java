@@ -2,8 +2,8 @@ package org.ipc1.tlotr.character.beasts;
 
 import org.ipc1.tlotr.character.Characters;
 
- public class Trasgo extends Beasts {
-    public Trasgo(int life, int shield, String name) {
+public class Orcs extends Beasts {
+    public Orcs(int life, int shield, String name) {
         super(life, shield, name);
     }
 
