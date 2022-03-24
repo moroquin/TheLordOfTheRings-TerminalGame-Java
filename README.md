@@ -57,4 +57,4 @@ ant javadoc
 ant clean
 ```
 
-## Saludos Inge ryuk@edyrrg
+## Saludos Inge Oliver, ryuk@edyrrg
