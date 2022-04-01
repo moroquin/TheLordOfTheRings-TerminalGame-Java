@@ -5,7 +5,7 @@ The object of this repository is assisting introduction to programming students 
 ## About the requirements
 
 You can find the details of the project in the . . . 
-
+Que tal? Soy Josué 
 ## Links of interest
 
 * Compiling the project from the command line
